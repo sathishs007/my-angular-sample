@@ -1,0 +1,22 @@
+<div class="container" style="width: 50%;margin-left:25%;border: 1px solid black">
+  <h1>Creat Hotel</h1>
+  <p>Please fill in this form to create an hotelaccount.</p>
+  <hr>
+<form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)" novalidate>
+
+<div >
+<label for="City"><b>City</b></label>
+<input type="text"  id="cityId" placeholder="City" ngModel name="city"  required/></div>
+<div>
+<label for="Description"><b>Description</b></label>
+<input type="text" ngModel name="description" id="descriptionId" placeholder="Description" required/></div>
+<div>
+<label for="Name"><b>Name</b></label>
+<input type="text" ngModel name="name" id="nameId" placeholder="Name" required/></div>
+<div>
+<label for="Rating"><b>Rating</b></label>
+<input type="text" ngModel name="rating" id="ratingId" placeholder="Rating" required/></div>
+<button type="submit">submit</button>
+
+</form>
+</div>
