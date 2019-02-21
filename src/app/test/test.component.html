@@ -2,20 +2,39 @@
   <h1>Creat Hotel</h1>
   <p>Please fill in this form to create an hotelaccount.</p>
   <hr>
-<form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)" novalidate>
+<form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)" >
 
 <div >
 <label for="City"><b>City</b></label>
-<input type="text"  id="cityId" placeholder="City" ngModel name="city"  required/></div>
+<input required type="text"  id="cityId" placeholder="City" ngModel name="city" #city="ngModel"  class="form-control"/> 
+<div *ngIf="submitted&&city.errors">
+        <small style="color:red" *ngIf=" city.errors.required">city is required</small>       
+      </div>
+</div>
 <div>
 <label for="Description"><b>Description</b></label>
-<input type="text" ngModel name="description" id="descriptionId" placeholder="Description" required/></div>
+<input required minlength="5" maxlength="15" type="text" ngModel name="description" #description="ngModel" id="descriptionId" placeholder="Description" />
+<div *ngIf="submitted&&description.errors">
+        <small style="color:red" *ngIf="description.errors.required">description is required</small> 
+        <small style="color:red" *ngIf="description.errors.minlength">description is required minlength {{description.errors.minlength.requiredLength}}</small>   
+      </div>
+</div>
 <div>
 <label for="Name"><b>Name</b></label>
-<input type="text" ngModel name="name" id="nameId" placeholder="Name" required/></div>
+<input required minlength="3" maxlength="10" #name="ngModel" type="text" ngModel pattern="[a-zA-Z ]*" name="name" id="nameId" placeholder="Name" />
+<div *ngIf="submitted&&name.errors">
+        <small style="color:red" *ngIf="name.errors.required">name is required</small> 
+        <small style="color:red" *ngIf="name.errors.minlength">name is required minlength {{name.errors.minlength.requiredLength}}</small>
+         <small style="color:red" *ngIf="name.errors.pattern">number is not allowed </small>   
+      </div>
+</div>
 <div>
 <label for="Rating"><b>Rating</b></label>
-<input type="text" ngModel name="rating" id="ratingId" placeholder="Rating" required/></div>
+<input required #rating="ngModel" type="text" ngModel name="rating" id="ratingId" placeholder="Rating" />
+<div *ngIf="submitted&&rating.errors">
+        <small style="color:red" *ngIf="rating.errors.required">Rating is required</small>  
+      </div>
+</div>
 <button type="submit">submit</button>
 
 </form>

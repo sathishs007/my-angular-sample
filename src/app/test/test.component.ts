@@ -11,6 +11,7 @@ export class TestComponent implements OnInit {
   constructor(
     private router: Router
   ){}
+  submitted =false;
 title = 'test-sample';
 //console.log("test::::::::::");
   
@@ -19,9 +20,14 @@ title = 'test-sample';
   ngOnInit() {
   }
   onSubmit(x){
+    this.submitted =true;
     console.log(x.value);
+    if(x.invalid){
+      return
+    }
     this.usermodel=x.value;
     console.log(this.usermodel);
+    localStorage.setItem('userModel', JSON.stringify(x.value));
     this.router.navigate(['/sample']);
   }
 }
