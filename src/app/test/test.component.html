@@ -6,14 +6,14 @@
 
 <div >
 <label for="City"><b>City</b></label>
-<input required type="text"  id="cityId" placeholder="City" ngModel name="city" #city="ngModel"  class="form-control"/> 
+<input required type="text"  id="cityId" placeholder="City"  name="city" #city="ngModel"  [(ngModel)]="usermodel.city"class="form-control"/> 
 <div *ngIf="submitted&&city.errors">
         <small style="color:red" *ngIf=" city.errors.required">city is required</small>       
       </div>
 </div>
 <div>
 <label for="Description"><b>Description</b></label>
-<input required minlength="5" maxlength="15" type="text" ngModel name="description" #description="ngModel" id="descriptionId" placeholder="Description" />
+<input required minlength="5" maxlength="15" type="text"  name="description" #description="ngModel" [(ngModel)]="usermodel.description" id="descriptionId" placeholder="Description" />
 <div *ngIf="submitted&&description.errors">
         <small style="color:red" *ngIf="description.errors.required">description is required</small> 
         <small style="color:red" *ngIf="description.errors.minlength">description is required minlength {{description.errors.minlength.requiredLength}}</small>   
@@ -21,7 +21,7 @@
 </div>
 <div>
 <label for="Name"><b>Name</b></label>
-<input required minlength="3" maxlength="10" #name="ngModel" type="text" ngModel pattern="[a-zA-Z ]*" name="name" id="nameId" placeholder="Name" />
+<input required minlength="3" maxlength="10" #name="ngModel" type="text"  pattern="[a-zA-Z ]*" [(ngModel)]="usermodel.name" name="name" id="nameId" placeholder="Name" />
 <div *ngIf="submitted&&name.errors">
         <small style="color:red" *ngIf="name.errors.required">name is required</small> 
         <small style="color:red" *ngIf="name.errors.minlength">name is required minlength {{name.errors.minlength.requiredLength}}</small>
@@ -30,7 +30,7 @@
 </div>
 <div>
 <label for="Rating"><b>Rating</b></label>
-<input required #rating="ngModel" type="text" ngModel name="rating" id="ratingId" placeholder="Rating" />
+<input required #rating="ngModel" type="text"  [(ngModel)]="usermodel.rating" name="rating" id="ratingId" placeholder="Rating" />
 <div *ngIf="submitted&&rating.errors">
         <small style="color:red" *ngIf="rating.errors.required">Rating is required</small>  
       </div>
