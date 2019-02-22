@@ -7,7 +7,7 @@ import { Sample } from './sample';
   styleUrls: ['./test.component.css']
 })
 export class TestComponent implements OnInit {
-  usermodel=new Sample('','','','');
+  usermodel=new Sample('Thuraiyur','Good experience','sathish','5');
   constructor(
     private router: Router
   ){}
@@ -21,7 +21,8 @@ title = 'test-sample';
   }
   onSubmit(x){
     this.submitted =true;
-    console.log(x.value);
+    console.log("form :::::::: "+x.value);
+    console.log(" sample class ::::::: "+this.usermodel);
     if(x.invalid){
       return
     }
