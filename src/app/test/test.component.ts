@@ -7,7 +7,10 @@ import { Sample } from './sample';
   styleUrls: ['./test.component.css']
 })
 export class TestComponent implements OnInit {
-  usermodel=new Sample('Thuraiyur','Good experience','sathish','5');
+  usermodel=new Sample('Thuraiyur','Good experience','sathish','5','5032209');
+   empList=[{"name":"sathish","id":"5032208"},{"name":"suresh","id":"5032209"}];
+   CurrentDate=new Date();
+   
   constructor(
     private router: Router
   ){}
