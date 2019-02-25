@@ -35,6 +35,33 @@
         <small style="color:red" *ngIf="rating.errors.required">Rating is required</small>  
       </div>
 </div>
+<div>
+<label for="Rating"><b>FromDate</b></label>
+<input required min='CurrentDate' #fromDate="ngModel" type="Date"  ngModel name="fromDate" id="fromDateId" placeholder="fromDate" />
+<div *ngIf="submitted&&fromDate.errors">
+        <small style="color:red" *ngIf="fromDate.errors.required">Rating is required</small>  
+      </div>
+</div>
+<div>
+<label for="Rating"><b>EmpName</b></label>
+<select required #empId="ngModel" type="text" name="empId" [(ngModel)]="usermodel.empId" id="empId" placeholder="empName">
+  <option value="default">I am interested in</option>
+  <option *ngFor="let emp of empList" [ngValue]="emp.id">{{emp.name}}</option>
+<div *ngIf="submitted&&empId.errors">
+        <small style="color:red" *ngIf="empId.errors.required">Rating is required</small>  
+      </div>
+</select>
+</div>
+<div>
+<label for="Rating"><b>FileUpload</b></label>
+<input  #filedata="ngModel" type="file" [(ngModel)]="usermodel.filedata" name="filedata"  id="fileUpId" placeholder="fileUp"/>
+ <!--
+<div *ngIf="submitted&&filedata.errors">
+        <small style="color:red" *ngIf="filedata.errors.required">Rating is required</small>  
+      </div> -->
+
+</div>
+{{CurrentDate | date: 'yyyy-MM-dd'}}
 <button type="submit">submit</button>
 
 </form>
