@@ -7,4 +7,5 @@ export class Sample {
         public empId:string,
         public filedata?:File 
     ) {}
+	
 }
