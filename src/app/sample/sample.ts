@@ -3,6 +3,7 @@ export class Sample {
         public city: string,
         public description: string,
         public name: string,
-        public rating: string
+        public rating: string,
+        public empId:string,
     ) {}
 }
