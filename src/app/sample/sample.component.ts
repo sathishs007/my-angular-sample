@@ -6,7 +6,7 @@ import { Sample } from './sample';
   styleUrls: ['./sample.component.css']
 })
 export class SampleComponent implements OnInit {
-usermodel=new Sample('','','','');
+usermodel=new Sample('','','','','');
   constructor() { }
   ngOnInit() {
     
