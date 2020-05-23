@@ -4,6 +4,6 @@ export class Sample {
         public description: string,
         public name: string,
         public rating: string,
-        public empId:string,
+        public empId:string
     ) {}
 }
